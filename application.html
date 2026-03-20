@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form | Hot Beans Web</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, deepskyblue, floralwhite);
+        }
+
+        /* Header + Logo */
+        header {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #cc8400;
+            text-align: center;
+        }  
+		
+		.top-bar {
+            background: linear-gradient(to right, #004aad, #85c1ff); /* deep blue → light blue */
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Center the content inside the header */
+        .top-content {
+            text-align: center;
+        }
+
+        /* Logo style */
+        .logo {
+            width: 130px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Application Form Title */
+       .top-content h1 {
+            color: white;
+            font-size: 32px;
+            margin-top: 10px;
+        }
+
+        /* Navigation bar */
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 15px;
+            color: floralwhite;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc66;
+            transform: scale(1.1);
+		}
+		
+		.contact {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+		
+		.contact h2 {
+            color: #cc8400;
+        }
+
+        .extra-links a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+        }
+
+
+        /* Progress Bar */
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            counter-reset: step;
+        }
+
+        .progress div {
+            text-align: center;
+            width: 100%;
+            position: relative;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .progress div::before {
+            counter-increment: step;
+            content: counter(step);
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .progress .active::before {
+            background: #ffcc66;
+        } 
+		
+		.extra-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons ion-icon {
+            font-size: 40px;
+            margin: 0 10px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .social-icons ion-icon:hover {
+            color: #0077ff;
+            transform: scale(1.1);
+        }
+		
+		.social-icons ion-icon {
+            font-size: 40px;
+            margin: 0 10px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .social-icons ion-icon:hover {
+            color: #0077ff;
+        }
+
+        /* Form Fields */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* Buttons */
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            background: #0077cc;
+            padding: 10px 25px;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #005fa3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Review Section */
+        .review-box {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffcc66;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <header>
+        <img src="hotbeanslogo.png" class="logo" alt="Hot Beans Web">
+        <h1>Application Form</h1>
+		<nav>
+          <a href="index.html">Home</a>
+	      <a href="about.html">About</a>
+	      <a href="employees.html">Our Developers</a>
+		  <a href="job-spec.html">Careers</a>
+		  <a href="courses.html">Recommended Web Development Courses</a>
+    </header>
+
+    <div class="form-container">
+
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div class="active">Personal</div>
+            <div>Education</div>
+            <div>Experience</div>
+            <div>Upload CV</div>
+            <div>Review</div>
+        </div>
+
+        <!-- Step 1: Personal Details -->
+        <div class="form-step" id="step1">
+            <h2>Personal Details</h2>
+
+            <label>Full Name</label>
+            <input type="text" id="name">
+
+            <label>Email</label>
+            <input type="email" id="email">
+
+            <label>Phone Number</label>
+            <input type="text" id="phone">
+
+            <div class="btn-container">
+                <button class="btn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Education -->
+        <div class="form-step hidden" id="step2">
+            <h2>Education</h2>
+
+            <label>Highest Qualification</label>
+            <select id="qualification">
+                <option>GCSE</option>
+                <option>A-Level</option>
+                <option>College Diploma</option>
+                <option>University Degree</option>
+            </select>
+
+            <label>School / University</label>
+            <input type="text" id="school">
+
+            <div class="btn-container">
+                <button class="btn" onclick="prevStep()">Back</button>
+                <button class="btn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Experience -->
+        <div class="form-step hidden" id="step3">
+            <h2>Experience</h2>
+
+            <label>Do you have any experience?</label>
+            <textarea id="experience"></textarea>
+
+            <div class="btn-container">
+                <button class="btn" onclick="prevStep()">Back</button>
+                <button class="btn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Upload CV -->
+        <div class="form-step hidden" id="step4">
+            <h2>Upload Your CV</h2>
+
+            <label>Select CV File</label>
+            <input type="file" id="cvFile" accept=".pdf,.doc,.docx">
+
+            <div class="btn-container">
+                <button class="btn" onclick="prevStep()">Back</button>
+                <button class="btn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Review -->
+        <div class="form-step hidden" id="step5">
+            <h2>Review & Submit</h2>
+
+            <div class="review-box">
+                <p><strong>Name:</strong> <span id="r_name"></span></p>
+                <p><strong>Email:</strong> <span id="r_email"></span></p>
+                <p><strong>Phone:</strong> <span id="r_phone"></span></p>
+                <p><strong>Qualification:</strong> <span id="r_qualification"></span></p>
+                <p><strong>School/University:</strong> <span id="r_school"></span></p>
+                <p><strong>Experience:</strong> <span id="r_experience"></span></p>
+                <p><strong>CV File:</strong> <span id="r_cv"></span></p>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" onclick="prevStep()">Back</button>
+                <button class="btn">Submit Application</button>
+            </div>
+        </div>
+
+    </div>
+ <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@hotbeansweb.co.uk</p>
+    <p>Phone: +44 7123 456789</p>
+    <p>Address: 25 Digital Drive, Wales, UK</p>
+  
+  
+   <div class="extra-links">
+       <a href="#">Terms of Service</a> |
+       <a href="#">Privacy Policy</a>
+   </div
+   
+
+  <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">
+          <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+      <a href="https://twitter.com" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+  </div>
+ </section>
+    <script>
+        let currentStep = 1;
+
+        // Go to next step
+        function nextStep() {
+            document.getElementById("step" + currentStep).classList.add("hidden");
+            currentStep++;
+            document.getElementById("step" + currentStep).classList.remove("hidden");
+            updateProgress();
+            fillReview();
+        }
+
+        // Go back
+        function prevStep() {
+            document.getElementById("step" + currentStep).classList.add("hidden");
+            currentStep--;
+            document.getElementById("step" + currentStep).classList.remove("hidden");
+            updateProgress();
+        }
+
+        // Update the top progress bar
+        function updateProgress() {
+            const steps = document.querySelectorAll(".progress div");
+            steps.forEach((step, index) => {
+                step.classList.toggle("active", index < currentStep);
+            });
+        }
+
+        // Fill in review section
+        function fillReview() {
+            if (currentStep === 5) {
+                document.getElementById("r_name").textContent = document.getElementById("name").value;
+                document.getElementById("r_email").textContent = document.getElementById("email").value;
+                document.getElementById("r_phone").textContent = document.getElementById("phone").value;
+                document.getElementById("r_qualification").textContent = document.getElementById("qualification").value;
+                document.getElementById("r_school").textContent = document.getElementById("school").value;
+                document.getElementById("r_experience").textContent = document.getElementById("experience").value;
+                document.getElementById("r_cv").textContent = document.getElementById("cvFile").value.split("\\").pop();
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+       
